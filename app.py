@@ -12,7 +12,7 @@ app = Flask(__name__)
 def hello():
     return "Hello Vidhi Patel"
 
-@app.route('/heart_disease_predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def heart_disease_pred():
     model = joblib.load("./HEART_DISEASE_MODEL.pkl")
 
