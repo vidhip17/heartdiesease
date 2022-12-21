@@ -3,6 +3,9 @@ import joblib
 import numpy as np
 import json
 
+# URL
+# app https://vid-heart-disease-prediction.herokuapp.com/
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -29,10 +32,8 @@ def heart_disease_pred():
 
     input = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     result = model.predict(input)[0]
-    # print(input)
-    # print(result)
     
     return json.dumps({"heart_disease":str(result)})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
